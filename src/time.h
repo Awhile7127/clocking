@@ -1,8 +1,10 @@
 // Various file-writing utilities
 
-// datetime, string
+// datetime, string, manipulate double decimal places
 #include <ctime>
 #include <string>
+#include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -25,10 +27,10 @@ string calculate_time(int execution_time) {
 
     if (duration < 60) {
         fmt_duration = to_string(duration) + "s";
-    } else if ((duration > 60) && (duration < 1200)) {
+    } else if ((duration >= 60) && (duration < 1200)) {
         duration = duration / 60;
         fmt_duration = to_string(duration) + "m";
-    } else if (duration > 1200) {
+    } else if (duration >= 1200) {
         duration = (duration / 60) / 60;
         fmt_duration = to_string(duration) + "h";
     }
